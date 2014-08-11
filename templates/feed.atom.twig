@@ -10,7 +10,7 @@
     </author>
     <id>{{ uri.rootUrl(true) }}{{ uri.route() }}</id>
     {% for item in collection %}
-    {% set banner = item.assets.images|first %}
+    {% set banner = item.media.images|first %}
     <entry>
         <title>{{ item.title|e }}</title>
         <id>{{ item.url(true) }}</id>
