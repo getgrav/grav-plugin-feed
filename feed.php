@@ -96,7 +96,7 @@ class FeedPlugin extends Plugin
     /**
      * Set needed variables to display the feed.
      */
-    public function onAfterSiteTwigVars()
+    public function onAfterTwigSiteVars()
     {
         if ($this->active) {
             $twig = Registry::get('Twig');
