@@ -12,6 +12,8 @@ You should now have all the plugin files under
 
 	/your/site/grav/user/plugins/feed
 
+>> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav), the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins, and a theme to be installed in order to operate.
+
 # Usage
 
 The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `sub_pages` header variable that defines a taxonomy or `true` to display sub-pages, then the RSS plugin will automatically be enabled. Simply append either `feed:atom` or `feed:rss` to the url.
