@@ -6,7 +6,7 @@ This plugin supports both __Atom 1.0__ and __RSS__ feed types. Enabling is very 
 
 # Installation
 
-To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins` and rename the folder to `feed`.
+To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `feed`.
 
 You should now have all the plugin files under
 
