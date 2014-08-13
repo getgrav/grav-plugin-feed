@@ -1,19 +1,19 @@
-Grav Syndication Feed Plugin
-=======================
-`feed` is a [Grav](http://github.com/getgrav/grav) Plugin and allows to generate feeds of your pages.
+# Grav Syndication Feed Plugin
 
-The plugin support both __Atom 1.0__ and __RSS__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default the plugin is enabled and provides some default values.
+`feed` is a [Grav](http://github.com/getgrav/grav) plugin and allows Grav to generate feeds of your pages.
 
-Installation
-========
-To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `feed`.
+This plugin supports both __Atom 1.0__ and __RSS__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default, the plugin is enabled and provides some default values.
+
+# Installation
+
+To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins` and rename the folder to `feed`.
 
 You should now have all the plugin files under
 
 	/your/site/grav/user/plugins/feed
 
-Usage
-=====
+# Usage
+
 The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `sub_pages` header variable that defines a taxonomy or `true` to display sub-pages, then the RSS plugin will automatically be enabled. Simply append either `feed:atom` or `feed:rss` to the url.
 
 eg:
@@ -22,8 +22,8 @@ eg:
 http://www.mysite.com/blog/feed:atom
 ```
 
-Config Defaults
-============
+# Config Defaults
+
 ```
 limit: 10
 description: My Feed Description
