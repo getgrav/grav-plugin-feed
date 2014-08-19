@@ -4,9 +4,9 @@ namespace Grav\Plugin;
 use Grav\Common\Data;
 use Grav\Common\Page\Collection;
 use Grav\Common\Plugin;
-use Grav\Common\Registry;
 use Grav\Common\Uri;
 use Grav\Common\Page\Page;
+use Grav\Component\EventDispatcher\Event;
 
 class FeedPlugin extends Plugin
 {
@@ -31,6 +31,16 @@ class FeedPlugin extends Plugin
     protected $valid_types = array('rss','atom');
 
     /**
+     * @return array
+     */
+    public static function getSubscribedEvents() {
+        return [
+            'onAfterInitPlugins' => ['onAfterInitPlugins', 0],
+            'onCreateBlueprint' => ['onCreateBlueprint', 0]
+        ];
+    }
+
+    /**
      * Activate feed plugin only if feed was requested for the current page.
      *
      * Also disables debugger.
@@ -38,12 +48,19 @@ class FeedPlugin extends Plugin
     public function onAfterInitPlugins()
     {
         /** @var Uri $uri */
-        $uri = Registry::get('Uri');
+        $uri = $this->grav['uri'];
         $this->type = $uri->extension();
 
         if ($this->type && in_array($this->type, $this->valid_types)) {
             $this->config->set('system.debugger.enabled', false);
-            $this->active = true;
+
+            $this->enable([
+                'onAfterGetPage' => ['onAfterGetPage', 0],
+                'onAfterCollectionProcessed' => ['onAfterCollectionProcessed', 0],
+                'onAfterTwigTemplatesPaths' => ['onAfterTwigTemplatesPaths', 0],
+                'onAfterTwigSiteVars' => ['onAfterTwigSiteVars', 0],
+                'onCreateBlueprint' => ['onCreateBlueprint', 0]
+            ]);
         }
     }
 
@@ -52,14 +69,10 @@ class FeedPlugin extends Plugin
      */
     public function onAfterGetPage()
     {
-        if (!$this->active) {
-            return;
-        }
-
         $defaults = (array) $this->config->get('plugins.feed');
 
         /** @var Page $page */
-        $page = Registry::get('Grav')->page;
+        $page = $this->grav['page'];
         if (isset($page->header()->feed)) {
             $this->feed_config = array_merge($defaults, $page->header()->feed);
         } else {
@@ -70,14 +83,12 @@ class FeedPlugin extends Plugin
     /**
      * Feed consists of all sub-pages.
      *
-     * @param Collection $collection
+     * @param Event $event
      */
-    public function onAfterCollectionProcessed(Collection $collection)
+    public function onAfterCollectionProcessed(Event $event)
     {
-        if (!$this->active) {
-            return;
-        }
-
+        /** @var Collection $collection */
+        $collection = $event['collection'];
         $collection->setParams(array_merge($collection->params(), $this->feed_config));;
     }
 
@@ -86,11 +97,7 @@ class FeedPlugin extends Plugin
      */
     public function onAfterTwigTemplatesPaths()
     {
-        if (!$this->active) {
-            return;
-        }
-
-        Registry::get('Twig')->twig_paths[] = __DIR__ . '/templates';
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     /**
@@ -98,21 +105,21 @@ class FeedPlugin extends Plugin
      */
     public function onAfterTwigSiteVars()
     {
-        if ($this->active) {
-            $twig = Registry::get('Twig');
-            $twig->template = 'feed.'.$this->type.'.twig';
-        }
+        $twig = $this->grav['twig'];
+        $twig->template = 'feed.' . $this->type . '.twig';
     }
 
     /**
      * Extend page blueprints with feed configuration options.
      *
-     * @param Data\Blueprint $blueprint
+     * @param Event $event
      */
-    public function onCreateBlueprint(Data\Blueprint $blueprint)
+    public function onCreateBlueprint(Event $event)
     {
         static $inEvent = false;
 
+        /** @var Data\Blueprint $blueprint */
+        $blueprint = $event['blueprint'];
         if (!$inEvent && $blueprint->name == 'blog_list') {
             $inEvent = true;
             $blueprints = new Data\Blueprints(__DIR__ . '/blueprints/');
