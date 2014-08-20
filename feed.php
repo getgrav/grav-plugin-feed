@@ -58,8 +58,7 @@ class FeedPlugin extends Plugin
                 'onPageInitialized' => ['onPageInitialized', 0],
                 'onCollectionProcessed' => ['onCollectionProcessed', 0],
                 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
-                'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
-                'onBlueprintCreated' => ['onBlueprintCreated', 0]
+                'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
             ]);
         }
     }
