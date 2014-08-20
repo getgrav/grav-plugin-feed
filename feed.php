@@ -35,8 +35,8 @@ class FeedPlugin extends Plugin
      */
     public static function getSubscribedEvents() {
         return [
-            'onAfterInitPlugins' => ['onAfterInitPlugins', 0],
-            'onCreateBlueprint' => ['onCreateBlueprint', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onBlueprintCreated' => ['onBlueprintCreated', 0]
         ];
     }
 
@@ -45,7 +45,7 @@ class FeedPlugin extends Plugin
      *
      * Also disables debugger.
      */
-    public function onAfterInitPlugins()
+    public function onPluginsInitialized()
     {
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
@@ -55,11 +55,11 @@ class FeedPlugin extends Plugin
             $this->config->set('system.debugger.enabled', false);
 
             $this->enable([
-                'onAfterGetPage' => ['onAfterGetPage', 0],
-                'onAfterCollectionProcessed' => ['onAfterCollectionProcessed', 0],
-                'onAfterTwigTemplatesPaths' => ['onAfterTwigTemplatesPaths', 0],
-                'onAfterTwigSiteVars' => ['onAfterTwigSiteVars', 0],
-                'onCreateBlueprint' => ['onCreateBlueprint', 0]
+                'onPageInitialized' => ['onPageInitialized', 0],
+                'onCollectionProcessed' => ['onCollectionProcessed', 0],
+                'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+                'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
+                'onBlueprintCreated' => ['onBlueprintCreated', 0]
             ]);
         }
     }
@@ -67,7 +67,7 @@ class FeedPlugin extends Plugin
     /**
      * Initialize feed configuration.
      */
-    public function onAfterGetPage()
+    public function onPageInitialized()
     {
         $defaults = (array) $this->config->get('plugins.feed');
 
@@ -85,7 +85,7 @@ class FeedPlugin extends Plugin
      *
      * @param Event $event
      */
-    public function onAfterCollectionProcessed(Event $event)
+    public function onCollectionProcessed(Event $event)
     {
         /** @var Collection $collection */
         $collection = $event['collection'];
@@ -95,7 +95,7 @@ class FeedPlugin extends Plugin
     /**
      * Add current directory to twig lookup paths.
      */
-    public function onAfterTwigTemplatesPaths()
+    public function onTwigTemplatePaths()
     {
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
@@ -103,7 +103,7 @@ class FeedPlugin extends Plugin
     /**
      * Set needed variables to display the feed.
      */
-    public function onAfterTwigSiteVars()
+    public function onTwigSiteVariables()
     {
         $twig = $this->grav['twig'];
         $twig->template = 'feed.' . $this->type . '.twig';
@@ -114,7 +114,7 @@ class FeedPlugin extends Plugin
      *
      * @param Event $event
      */
-    public function onCreateBlueprint(Event $event)
+    public function onBlueprintCreated(Event $event)
     {
         static $inEvent = false;
 
