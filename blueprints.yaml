@@ -1,6 +1,17 @@
-name: RSS Feed Plugin
-version: 1.0.0
-description: This is an RSS feed plugin for Grav.
+name: Feed
+version: 1.1.0
+description: The **Feed** plugin is a simple yet powerful add-on that lets you view a Grav Collection as **RSS** or **Atom** news feed.
+icon: rss
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-feed
+demo: http://demo.getgrav.org/blog-skeleton
+keywords: feed, plugin, rss, atom, collection
+bugs: https://github.com/getgrav/grav-plugin-feed/issues
+license: MIT
+
 validation: strict
 
 form:
