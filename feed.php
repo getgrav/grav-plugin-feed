@@ -6,7 +6,7 @@ use Grav\Common\Page\Collection;
 use Grav\Common\Plugin;
 use Grav\Common\Uri;
 use Grav\Common\Page\Page;
-use Grav\Component\EventDispatcher\Event;
+use RocketTheme\Toolbox\Event\Event;
 
 class FeedPlugin extends Plugin
 {
