@@ -47,6 +47,11 @@ class FeedPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
         $this->type = $uri->extension();
@@ -68,6 +73,8 @@ class FeedPlugin extends Plugin
      */
     public function onPageInitialized()
     {
+        if (!$this->active) return;
+
         $defaults = (array) $this->config->get('plugins.feed');
 
         /** @var Page $page */
@@ -86,6 +93,8 @@ class FeedPlugin extends Plugin
      */
     public function onCollectionProcessed(Event $event)
     {
+        if (!$this->active) return;
+
         /** @var Collection $collection */
         $collection = $event['collection'];
         $collection->setParams(array_merge($collection->params(), $this->feed_config));;
@@ -96,6 +105,8 @@ class FeedPlugin extends Plugin
      */
     public function onTwigTemplatePaths()
     {
+        if (!$this->active) return;
+
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
@@ -104,6 +115,8 @@ class FeedPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
+        if (!$this->active) return;
+
         $twig = $this->grav['twig'];
         $twig->template = 'feed.' . $this->type . '.twig';
     }
