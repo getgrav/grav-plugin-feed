@@ -57,7 +57,7 @@ class FeedPlugin extends Plugin
         $this->type = $uri->extension();
 
         if ($this->type && in_array($this->type, $this->valid_types)) {
-            $this->config->set('system.debugger.enabled', false);
+            $this->active = true;
 
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
