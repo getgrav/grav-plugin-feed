@@ -5,11 +5,9 @@
     <link href="{{ uri.url(true) }}.{{ uri.extension() }}" rel="self" />
     <subtitle>{{ collection.params.description }}</subtitle>
     <updated>{{ collection|first.date|date("Y-m-d\\TH:i:sP") }}</updated>
-    {% if site.default_name %}
     <author>
-        <name>{{ site.default_name }}</name>
+        <name>{{ site.author.name|default("Grav User") }}</name>
     </author>
-    {% endif %}
     <id>{{ uri.rootUrl(true) }}{{ uri.route() }}</id>
     {% for item in collection %}
     {% set banner = item.media.images|first %}
