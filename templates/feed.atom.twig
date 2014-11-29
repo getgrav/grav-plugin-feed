@@ -2,11 +2,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ page.title }}</title>
-    <link href="{{ uri.url(true) }}" rel="self" />
+    <link href="{{ uri.url(true) }}.{{ uri.extension() }}" rel="self" />
     <subtitle>{{ collection.params.description }}</subtitle>
     <updated>{{ collection|first.date|date("Y-m-d\\TH:i:sP") }}</updated>
     <author>
-        <name>{{ site.default_name }}</name>
+        <name>{{ site.author.name|default("Grav User") }}</name>
     </author>
     <id>{{ uri.rootUrl(true) }}{{ uri.route() }}</id>
     {% for item in collection %}
