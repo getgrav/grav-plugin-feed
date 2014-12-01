@@ -33,7 +33,8 @@ class FeedPlugin extends Plugin
     /**
      * @return array
      */
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
             'onPluginsInitialized' => ['onPluginsInitialized', 0],
             'onBlueprintCreated' => ['onBlueprintCreated', 0]
@@ -73,8 +74,6 @@ class FeedPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if (!$this->active) return;
-
         $defaults = (array) $this->config->get('plugins.feed');
 
         /** @var Page $page */
@@ -93,11 +92,9 @@ class FeedPlugin extends Plugin
      */
     public function onCollectionProcessed(Event $event)
     {
-        if (!$this->active) return;
-
         /** @var Collection $collection */
         $collection = $event['collection'];
-        $collection->setParams(array_merge($collection->params(), $this->feed_config));;
+        $collection->setParams(array_merge($collection->params(), $this->feed_config));
     }
 
     /**
@@ -105,8 +102,6 @@ class FeedPlugin extends Plugin
      */
     public function onTwigTemplatePaths()
     {
-        if (!$this->active) return;
-
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
@@ -115,8 +110,6 @@ class FeedPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        if (!$this->active) return;
-
         $twig = $this->grav['twig'];
         $twig->template = 'feed.' . $this->type . '.twig';
     }
