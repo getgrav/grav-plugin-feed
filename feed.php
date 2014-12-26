@@ -53,6 +53,8 @@ class FeedPlugin extends Plugin
             return;
         }
 
+        $this->feed_config = (array) $this->config->get('plugins.feed');
+
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
         $this->type = $uri->extension();
@@ -74,14 +76,10 @@ class FeedPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        $defaults = (array) $this->config->get('plugins.feed');
-
         /** @var Page $page */
         $page = $this->grav['page'];
         if (isset($page->header()->feed)) {
-            $this->feed_config = array_merge($defaults, $page->header()->feed);
-        } else {
-            $this->feed_config = $defaults;
+            $this->feed_config = array_merge($this->feed_config, $page->header()->feed);
         }
     }
 
