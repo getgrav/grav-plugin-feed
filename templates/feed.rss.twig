@@ -14,7 +14,7 @@
             <link>{{ item.url(true) }}</link>
             <description>
                 {% if banner %}
-                {{ banner.cropZoom(600,400).html|absoluteUrl|e }}
+                {{ banner.cropZoom(600,400).html|absolute_url|e }}
                 {% endif %}
                 {{ item.content|truncate(collection.params.length)|striptags|e }}
             </description>
