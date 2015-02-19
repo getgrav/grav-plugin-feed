@@ -6,17 +6,17 @@
         <link>{{ uri.url(true) }}.{{ uri.extension() }}</link>
         <description>{{ collection.params.description }}</description>
         <language>{{ collection.params.lang }}</language>
-        <atom:link href="{{ uri.url(true) }}" rel="self" type="application/rss+xml"/>
+        <atom:link href="{{ uri.url(true) }}.{{  uri.extension }}" rel="self" type="application/rss+xml"/>
         {% for item in collection %}
         {% set banner = item.media.images|first %}
         <item>
-            <title>{{ item.title }}</title>
+            <title>{{ item.title|e }}</title>
             <link>{{ item.url(true) }}</link>
             <description>
                 {% if banner %}
-                {{ banner.cropZoom(600,400).html|e }}
+                {{ banner.cropZoom(600,400).html|absolute_url|e }}
                 {% endif %}
-                {{ item.content|truncate(collection.params.length)|e }}
+                {{ item.content|truncate(collection.params.length)|striptags|e }}
             </description>
             <category>{{ item.taxonomy.tag|join(',') }}</category>
             <guid>{{ item.url(true) }}</guid>
