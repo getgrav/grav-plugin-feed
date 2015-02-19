@@ -1,5 +1,5 @@
 # v1.3.2
-## XX/XX/XXXX
+## 02/19/2015
 
 1. [](#bugfix)
     * Fixed couple of RSS validation issues
