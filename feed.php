@@ -81,6 +81,9 @@ class FeedPlugin extends Plugin
         if (isset($page->header()->feed)) {
             $this->feed_config = array_merge($this->feed_config, $page->header()->feed);
         }
+
+        // Overwrite regular content with feed config, so you can influence the collection processing with feed config
+        $page->header()->content = array_merge($page->header()->content, $this->feed_config);
     }
 
     /**
