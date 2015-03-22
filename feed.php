@@ -64,7 +64,6 @@ class FeedPlugin extends Plugin
 
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
-                'onCollectionProcessed' => ['onCollectionProcessed', 0],
                 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
                 'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
             ]);
@@ -81,18 +80,9 @@ class FeedPlugin extends Plugin
         if (isset($page->header()->feed)) {
             $this->feed_config = array_merge($this->feed_config, $page->header()->feed);
         }
-    }
 
-    /**
-     * Feed consists of all sub-pages.
-     *
-     * @param Event $event
-     */
-    public function onCollectionProcessed(Event $event)
-    {
-        /** @var Collection $collection */
-        $collection = $event['collection'];
-        $collection->setParams(array_merge($collection->params(), $this->feed_config));
+        // Overwrite regular content with feed config, so you can influence the collection processing with feed config
+        $page->header()->content = array_merge($page->header()->content, $this->feed_config);
     }
 
     /**
