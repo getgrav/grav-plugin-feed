@@ -1,3 +1,11 @@
+# v1.3.3
+## 03/24/2015
+
+1. [](#improved)
+    * Feed will now skip pages with `feed: skip: true` in frontmatter
+1. [](#bugfix)
+    * Fixed page overrides for configuration
+
 # v1.3.2
 ## 02/19/2015
 

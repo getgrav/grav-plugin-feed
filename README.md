@@ -73,6 +73,14 @@ feed:
     description: Sample Blog Description
 ```
 
+You can ensure a particular page is skipped from the feed by adding the following in the frontmatter header:
+
+```
+title: Sample Blog
+feed:
+    skip: true
+```
+
 # Updating
 
 As development for the Feed plugin continues, new versions may become available that add additional features and functionality, improve compatibility with newer Grav releases, and generally provide a better user experience. Updating Feed is easy, and can be done through Grav's GPM system, as well as manually.
