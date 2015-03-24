@@ -81,6 +81,9 @@ class FeedPlugin extends Plugin
         if (isset($page->header()->feed)) {
             $this->feed_config = array_merge($this->feed_config, $page->header()->feed);
         }
+
+        // Overwrite regular content with feed config, so you can influence the collection processing with feed config
+        $page->header()->content = array_merge($page->header()->content, $this->feed_config);
     }
 
     /**
@@ -92,7 +95,13 @@ class FeedPlugin extends Plugin
     {
         /** @var Collection $collection */
         $collection = $event['collection'];
-        $collection->setParams(array_merge($collection->params(), $this->feed_config));
+
+        foreach ($collection as $slug => $page) {
+            $header = $page->header();
+            if (isset($header->feed) && !empty($header->feed['skip'])) {
+                $collection->remove($page);
+            }
+        }
     }
 
     /**
