@@ -30,12 +30,16 @@ You should now have all the plugin files under
 
 # Usage
 
-The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `sub_pages` header variable that defines a taxonomy or `true` to display sub-pages, then the RSS plugin will automatically be enabled. Simply append either `feed.atom` or `feed.rss` to the url.
-
-eg:
+The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `content`, then the RSS plugin will automatically be enabled. Simply append either `.atom` or `.rss` to the url.  For example, if you have a blog page that defines a `content` header to display a list of blog pages in a list, and the URL is `http://www.mysite.com/blog` then the feed would simply be:
 
 ```
-http://www.mysite.com/blog/feed.atom
+http://www.mysite.com/blog.atom
+```
+
+or
+
+```
+http://www.mysite.com/blog.rss
 ```
 
 ## Creating Feed Buttons in Your Pages
