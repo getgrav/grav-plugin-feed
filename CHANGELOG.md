@@ -1,3 +1,9 @@
+# v1.4.0
+## 08/26/2015
+
+1. [](#improved)
+    * Added blueprints for Grav Admin plugin
+
 # v1.3.3
 ## 03/24/2015
 
