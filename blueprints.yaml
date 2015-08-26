@@ -43,7 +43,7 @@ form:
       label: Feed language code
       placeholder: en-us
       validate:
-        pattern: "[a-zA-Z]{2,3}-a-zA-Z]{2,3}"
+        pattern: "[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?"
 
     length:
       type: text
