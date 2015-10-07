@@ -1,3 +1,9 @@
+# v1.4.1
+## 10/07/2015
+
+1. [](#bugfix)
+    * Avoid duplicated routes
+
 # v1.4.0
 ## 08/26/2015
 
