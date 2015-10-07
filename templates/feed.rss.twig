@@ -13,10 +13,12 @@
             <title>{{ item.title|e }}</title>
             <link>{{ item.url(true) }}</link>
             <description>
+                <![CDATA[
                 {% if banner %}
-                {{ banner.cropZoom(600,400).html|absolute_url|e }}
+                {{ banner.cropZoom(600,400).html|absolute_url }}
                 {% endif %}
-                {{ item.content|truncate(collection.params.length)|striptags|e }}
+                {{ item.summary|truncate_html(collection.params.length) }}
+                ]]>
             </description>
             <category>{{ item.taxonomy.tag|join(',') }}</category>
             <guid>{{ item.url(true) }}</guid>
