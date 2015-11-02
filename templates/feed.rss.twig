@@ -3,7 +3,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>{{ page.title }}</title>
-        <link>{{ uri.url(true) }}.{{ uri.extension() }}</link>
+        <link>{{ page.url(true) }}.{{ uri.extension() }}</link>
         <description>{{ collection.params.description }}</description>
         <language>{{ collection.params.lang }}</language>
         <atom:link href="{{ uri.url(true) }}.{{  uri.extension }}" rel="self" type="application/rss+xml"/>
