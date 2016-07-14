@@ -1,3 +1,9 @@
+# v1.5.0
+## 07/14/2016
+
+1. [](#improved)
+    * Make Feeds 'language-safe'
+
 # v1.4.1
 ## 10/07/2015
 
