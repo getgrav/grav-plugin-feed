@@ -1,5 +1,5 @@
 name: Feed
-version: 1.4.1
+version: 1.5.0
 description: The **Feed** plugin is a simple yet powerful add-on that lets you view a Grav Collection as **RSS** or **Atom** news feed.
 icon: rss
 author:
