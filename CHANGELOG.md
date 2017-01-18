@@ -1,3 +1,9 @@
+# v1.5.1
+## XX/XX/2016
+
+1. [](#bugfix)
+    * Add support for Twig `Autoescape variables` mode
+
 # v1.5.0
 ## 07/14/2016
 
