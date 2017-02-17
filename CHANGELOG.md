@@ -1,5 +1,5 @@
 # v1.5.2
-## 02/xx/2017
+## 02/17/2017
 
 1. [](#bugfix)
     * Fix issue on non-collection pages [#14](https://github.com/getgrav/grav-plugin-feed/pull/14)
