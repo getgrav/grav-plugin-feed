@@ -25,7 +25,7 @@
             {% if banner %}
             {{ banner.cropZoom(600,400).html|raw }}
             {% endif %}
-            {{ item.summary|truncate_html(collection.params.length)|raw }}
+            {{ item.content|truncate_html(collection.params.length)|raw }}
             ]]>
         </content>
     </entry>
