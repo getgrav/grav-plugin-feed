@@ -1,3 +1,9 @@
+# v1.5.3
+## 04/12/2017
+
+1. [](#bugfix)
+    * Fix a truncate issue [#16](https://github.com/getgrav/grav-plugin-feed/pull/16)
+
 # v1.5.2
 ## 02/17/2017
 
