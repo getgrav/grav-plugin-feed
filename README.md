@@ -4,7 +4,7 @@
 
 `feed` is a [Grav](http://github.com/getgrav/grav) plugin and allows Grav to generate feeds of your pages.
 
-This plugin supports both __Atom 1.0__ and __RSS__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default, the plugin is enabled and provides some default values.
+This plugin supports __Atom 1.0__, __RSS__ and __JSON__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default, the plugin is enabled and provides some default values.
 
 # Installation
 
@@ -30,7 +30,7 @@ You should now have all the plugin files under
 
 # Usage
 
-The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `content`, then the RSS plugin will automatically be enabled. Simply append either `.atom` or `.rss` to the url.  For example, if you have a blog page that defines a `content` header to display a list of blog pages in a list, and the URL is `http://www.mysite.com/blog` then the feed would simply be:
+The feeds work for pages that have sub-pages, for example a blog list view. If your page has a `content`, then the RSS plugin will automatically be enabled. Simply append either `.atom`, `.rss` or `.json` to the url.  For example, if you have a blog page that defines a `content` header to display a list of blog pages in a list, and the URL is `http://www.mysite.com/blog` then the feed would simply be:
 
 ```
 http://www.mysite.com/blog.atom
@@ -42,6 +42,11 @@ or
 http://www.mysite.com/blog.rss
 ```
 
+or
+
+```
+http://www.mysite.com/blog.json
+```
 ## Creating Feed Buttons in Your Pages
 
 Just having the plugin loaded and activated is enough to get it working, but you can help users find your feeds by creating buttons in the body of your page users can easily discover and click on to access the feeds.
