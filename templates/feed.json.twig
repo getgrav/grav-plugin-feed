@@ -1,0 +1,27 @@
+{% set collection = collection|default(page.collection) %}
+{
+    "version" : "https://jsonfeed.org/version/1",
+    "title" : "Your blog name",
+    "home_page_url" : "https://yoursiteurl.com/",
+    "feed_url" : "http://www.yoursiteurl.com/blog",
+    "author"  : {
+      "url"  : "link to your social media",
+      "name"  : "Your Name"
+   },
+    "items" : [
+    {% for item in collection %}
+		{
+            "title" : "{{ item.title|e }}",
+            "date_published" : "{{ item.date|date('Y-m-d') }}",
+            "date_modified" : "{{ item.date|date('Y-m-d') }}",
+            "id" : "{{ item.url(true) }}",
+            "url" : "{{ item.url(true) }}",
+            "author" : {
+            	"name" : "Your Name"
+	         },
+            "content_text" : {{ item.content|striptags|json_encode }}
+		}{% if loop.index != loop.length %},{% endif %}
+      	  
+    {% endfor %}
+    ]
+}
