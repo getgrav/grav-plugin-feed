@@ -1,3 +1,9 @@
+# v1.6.0
+## 05/25/2017
+
+1. [](#new)
+    * Added support for new JSON feed format by @RosemaryOrchard [#21](https://github.com/getgrav/grav-plugin-feed/pull/21)
+
 # v1.5.3
 ## 04/12/2017
 
