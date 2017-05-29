@@ -53,3 +53,14 @@ form:
         type: number
         min: 10
         max: 10000
+
+    enable_json_feed:
+      type: toggle
+      label: JSON feed support
+      highlight: 0
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
