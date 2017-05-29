@@ -6,7 +6,7 @@
 
 This plugin supports __Atom 1.0__, __RSS__ and __JSON__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default, the plugin is enabled and provides some default values.
 
-| NOTE: JSON feeds must be enabled manually in the plugin configuration as the `.json` extension is commonly used and this can conflict with other plugins.
+| NOTE: JSON feeds must be enabled manually in the plugin configuration as the `.json` extension is commonly used and this can conflict with other plugins. 
 
 # Installation
 
@@ -65,11 +65,11 @@ The first line adds the **Atom** feed by simply adding `.atom` to the base URL o
 # Config Defaults
 
 ```
+enable_json_feed: false
 limit: 10
 description: My Feed Description
 lang: en-us
 length: 500
-enable_json_feed: false
 ```
 
 You can override any of the default values by setting one or more of these in your blog list page where `sub_pages` is defined. For example:
@@ -83,7 +83,6 @@ content:
 feed:
     limit: 15
     description: Sample Blog Description
-    enable_json_feed: true
 ```
 
 You can ensure a particular page is skipped from the feed by adding the following in the frontmatter header:

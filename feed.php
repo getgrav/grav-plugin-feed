@@ -28,7 +28,7 @@ class FeedPlugin extends Plugin
     /**
      * @var array
      */
-    protected $valid_types = array('rss','atom','json');
+    protected $valid_types = array('rss','atom');
 
     /**
      * @return array
@@ -54,6 +54,10 @@ class FeedPlugin extends Plugin
         }
 
         $this->feed_config = (array) $this->config->get('plugins.feed');
+
+        if ($this->feed_config['enable_json_feed']) {
+            $this->valid_types[] = 'json';
+        }
 
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
@@ -104,13 +108,17 @@ class FeedPlugin extends Plugin
             }
         }
 
-        $extension = $this->grav['uri']->extension();
-        if ($extension == 'json' && !$this->feed_config['enable_json_feed']) {
-            return;
-        }
+        $this->enable([
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
+        ]);
+    }
 
-        $twig = $this->grav['twig'];
-        $twig->template = 'feed.' . $this->type . '.twig';
+    /**
+     * Set feed template as current twig template
+     */
+    public function onTwigSiteVariables()
+    {
+        $this->grav['twig']->template = 'feed.' . $this->type . '.twig';
     }
 
     /**
