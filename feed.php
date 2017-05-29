@@ -55,6 +55,10 @@ class FeedPlugin extends Plugin
 
         $this->feed_config = (array) $this->config->get('plugins.feed');
 
+        if ($this->feed_config['enable_json_feed']) {
+            $this->valid_types[] = 'json';
+        }
+
         /** @var Uri $uri */
         $uri = $this->grav['uri'];
         $this->type = $uri->extension();
@@ -66,7 +70,6 @@ class FeedPlugin extends Plugin
                 'onPageInitialized' => ['onPageInitialized', 0],
                 'onCollectionProcessed' => ['onCollectionProcessed', 0],
                 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
-                'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
             ]);
         }
     }
@@ -104,6 +107,18 @@ class FeedPlugin extends Plugin
                 $collection->remove($page);
             }
         }
+
+        $this->enable([
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
+        ]);
+    }
+
+    /**
+     * Set feed template as current twig template
+     */
+    public function onTwigSiteVariables()
+    {
+        $this->grav['twig']->template = 'feed.' . $this->type . '.twig';
     }
 
     /**
@@ -114,14 +129,6 @@ class FeedPlugin extends Plugin
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
-    /**
-     * Set needed variables to display the feed.
-     */
-    public function onTwigSiteVariables()
-    {
-        $twig = $this->grav['twig'];
-        $twig->template = 'feed.' . $this->type . '.twig';
-    }
 
     /**
      * Extend page blueprints with feed configuration options.
