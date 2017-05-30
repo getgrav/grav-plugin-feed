@@ -1,5 +1,5 @@
 # v1.6.1
-## 05/29/2017
+## 05/30/2017
 
 1. [](#bugfix)
     * Optimized logic to disable JSON feeds by default and only set the template when there's a collection
