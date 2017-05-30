@@ -28,7 +28,7 @@ class FeedPlugin extends Plugin
     /**
      * @var array
      */
-    protected $valid_types = array('rss','atom','json');
+    protected $valid_types = array('rss','atom');
 
     /**
      * @return array
