@@ -5,6 +5,8 @@
 `feed` is a [Grav](http://github.com/getgrav/grav) plugin and allows Grav to generate feeds of your pages.
 
 This plugin supports __Atom 1.0__, __RSS__ and __JSON__ feed types. Enabling is very simple. just install this plugin in the `/user/plugins/`` folder in your Grav install. By default, the plugin is enabled and provides some default values.
+
+
 | NOTE: JSON feeds must be enabled manually in the plugin configuration as the `.json` extension is commonly used and this can conflict with other plugins.
 
 # Installation
