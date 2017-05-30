@@ -3,6 +3,8 @@
 
 1. [](#bugfix)
     * Optimized logic to disable JSON feeds by default and only set the template when there's a collection
+1. [](#improved)
+    * Improved JSON template to `json_encode()` all output
 
 # v1.6.0
 ## 05/25/2017
