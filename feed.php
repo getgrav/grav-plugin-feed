@@ -70,6 +70,7 @@ class FeedPlugin extends Plugin
                 'onPageInitialized' => ['onPageInitialized', 0],
                 'onCollectionProcessed' => ['onCollectionProcessed', 0],
                 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+                'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
             ]);
         }
     }
@@ -88,7 +89,7 @@ class FeedPlugin extends Plugin
         // Overwrite regular content with feed config, so you can influence the collection processing with feed config
         if (property_exists($page->header(), 'content')) {
             $page->header()->content = array_merge($page->header()->content, $this->feed_config);
-        }    
+        }
     }
 
     /**
@@ -107,10 +108,6 @@ class FeedPlugin extends Plugin
                 $collection->remove($page);
             }
         }
-
-        $this->enable([
-            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
-        ]);
     }
 
     /**
