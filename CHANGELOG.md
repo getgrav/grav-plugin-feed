@@ -1,5 +1,5 @@
 # v1.6.2
-## 06/xx/2017
+## 06/06/2017
 
 1. [](#bugfix)
     * Fix issue with feeds not rendering with cache enabled [#27](https://github.com/getgrav/grav-plugin-feed/pull/27)
