@@ -115,7 +115,7 @@ class FeedPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        $this->grav['twig']->template = 'feed.' . $this->type . '.twig';
+        $this->grav['twig']->template = (isset($this->feed_config['podcast']) && $this->feed_config['podcast'] ? 'podcast' : 'feed') . '.' . $this->type . '.twig';
     }
 
     /**

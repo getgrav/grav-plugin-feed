@@ -1,0 +1,48 @@
+{% set collection = collection|default(page.collection) %}
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:itunesu="http://www.itunesu.com/feed" version="2.0">
+    <channel>
+        <link>{{ header.podcast.link }}</link>
+        <language>{{ header.podcast.language }}</language>
+        <copyright>{{ header.podcast.copyright }}</copyright>
+        <webMaster>{{ header.podcast.webMaster }}</webMaster>
+        <managingEditor>{{ header.podcast.managingEditor }}</managingEditor>
+        <image>
+            <url>{{ header.podcast.image.url }}</url>
+            <title>{{ header.podcast.image.title }}</title>
+            <link>{{ header.podcast.link }}</link>
+        </image>
+        <itunes:owner>
+            <itunes:name>{{ header.podcast.itunes.owner.name }}</itunes:name>
+            <itunes:email>{{ header.podcast.itunes.owner.email }}</itunes:email>
+        </itunes:owner>
+        <itunes:category text="{{ header.podcast.itunes.category }}">
+            <itunes:category text="{{ header.podcast.itunes.subcategory }}" />
+        </itunes:category>
+        <itunes:keywords>{{ header.podcast.itunes.keywords }}</itunes:keywords>
+        <itunes:explicit>{{ header.podcast.itunes.explicit }}</itunes:explicit>
+        <itunes:image href="{{ header.podcast.image.url }}" />
+        <atom:link href="{{ header.podcast.atom.link }}" rel="self" type="application/rss+xml" />
+        <pubDate>{{ header.podcast.pubDate }}</pubDate>
+        <title>{{ header.podcast.title }}</title>
+        <itunes:author>{{ header.podcast.itunes.author }}</itunes:author>
+        <description>{{ header.podcast.description }}</description>
+        <itunes:summary>{{ header.podcast.itunes.summary }}</itunes:summary>
+        <itunes:subtitle>{{ header.podcast.itunes.subtitle }}</itunes:subtitle>
+        <lastBuildDate>{{item.podcast.lastBuildDate ?: page.date|date('D, d M Y H:i:s O')}}</lastBuildDate>
+        {% for item in collection %}
+        {% if item.header.podcast %}
+        <item>
+            <title>{{item.header.podcast.title ?: item.title}}</title>
+            <description>{{item.header.podcast.description ?: item.description}}</description>
+            <itunes:summary>{{item.header.podcast.description ?: item.description}}</itunes:summary>
+            <itunes:subtitle>{{item.header.podcast.description|truncate(255)}}</itunes:subtitle>
+            <enclosure url="{{item.header.podcast.enclosure}}" type="audio/mpeg" length="1" />
+            <guid>{{item.header.podcast.guid}}</guid>
+            <itunes:duration>{{item.header.podcast.duration}}</itunes:duration>
+            <pubDate>{{item.header.podcast.pubDate ?: item.date|date('D, d M Y H:i:s O')}}</pubDate>
+        </item>
+        {% endif %}
+        {% endfor %}
+    </channel>
+</rss>
