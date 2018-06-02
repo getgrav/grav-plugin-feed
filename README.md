@@ -49,6 +49,16 @@ or
 ```
 http://www.mysite.com/blog.json
 ```
+
+## Autodiscovery
+
+To let feed readers discover the feed automatically, add a link to your HTML `<head>` tag:
+
+```
+<link rel="alternate" type="application/atom+xml" title="My Feed" href="{{ base_url }}.atom" />
+<link rel="alternate" type="application/rss+xml" title="My Feed" href="{{ base_url }}.rss" />
+```
+
 ## Creating Feed Buttons in Your Pages
 
 Just having the plugin loaded and activated is enough to get it working, but you can help users find your feeds by creating buttons in the body of your page users can easily discover and click on to access the feeds.
