@@ -57,6 +57,7 @@ To let feed readers discover the feed automatically, add a link to your HTML `<h
 ```
 <link rel="alternate" type="application/atom+xml" title="My Feed" href="{{ base_url }}.atom" />
 <link rel="alternate" type="application/rss+xml" title="My Feed" href="{{ base_url }}.rss" />
+<link rel="alternate" type="application/json" title="My Feed" href="{{ base_url }}.json" />
 ```
 
 ## Creating Feed Buttons in Your Pages
