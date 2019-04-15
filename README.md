@@ -127,9 +127,9 @@ Manually updating Feed is pretty simple. Here is what you will need to do to get
 
 > Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/plugins`) will remain intact.
 
-## NGINX Note:
+## Nginx Note:
 
-If you are having trouble with 404s with NGINX, it might be related to your configuration. You may need to modify the static files cache to ensure these extensions are not cached: `.xml`, `.rss`, and `.atom`:
+If you are having trouble with 404s with Nginx, it might be related to your configuration. You may need to remove the feed extensions from the list of types to cache as static files: `.xml`, `.rss`, and `.atom`. For example:
 
 ```nginx
 # Cache static files
