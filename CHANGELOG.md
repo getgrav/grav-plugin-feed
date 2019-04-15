@@ -1,3 +1,9 @@
+# v1.7.0
+## 04/15/2019
+
+1. [](#bugfix)
+    * Changed type `text` to `range` to prevent validation errors [#45](https://github.com/getgrav/grav-plugin-feed/issues/45)
+
 # v1.6.2
 ## 06/06/2017
 
