@@ -48,10 +48,10 @@ form:
 
     length:
       type: text
-      label: Feed Length
+      label: Feed content length (0 for full-text feed)
       validate:
         type: number
-        min: 10
+        min: 0
         max: 10000
 
     enable_json_feed:
