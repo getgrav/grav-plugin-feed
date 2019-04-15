@@ -4,6 +4,7 @@
 1. [](#improved)
     * Use `safe_truncate_html` [#41](https://github.com/getgrav/grav-plugin-feed/pull/41)
     * Allow full-text feeds [#37](https://github.com/getgrav/grav-plugin-feed/pull/37)
+    * Dynamic json feed header and image file support [#32](https://github.com/getgrav/grav-plugin-feed/pull/32)
     * Added `json` link example to `README.md`
 1. [](#bugfix)
     * Changed type `text` to `range` to prevent validation errors [#45](https://github.com/getgrav/grav-plugin-feed/issues/45)
