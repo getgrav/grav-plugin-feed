@@ -3,7 +3,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>{{ page.title }}</title>
-        <link>{{ page.url(true) }}.{{ uri.extension() }}</link>
+        <link>{{ uri.rootUrl(true) }}{{ uri.route() }}.{{ uri.extension() }}</link>
         <description>{{ collection.params.description }}</description>
         <language>{{ collection.params.lang }}</language>
         <atom:link href="{{ uri.url(true) }}.{{  uri.extension }}" rel="self" type="application/rss+xml"/>
@@ -17,7 +17,7 @@
                 {% if banner %}
                 {{ banner.cropZoom(600,400).html|absolute_url|raw }}
                 {% endif %}
-                {{ item.content|truncate_html(collection.params.length)|raw }}
+                {{ item.content|safe_truncate_html(collection.params.length)|raw }}
                 ]]>
             </description>
             <category>{{ item.taxonomy.tag|join(',') }}</category>

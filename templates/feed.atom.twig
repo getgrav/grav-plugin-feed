@@ -2,7 +2,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ page.title }}</title>
-    <link href="{{ page.url(true) }}.{{ uri.extension() }}" rel="self" />
+    <link href="{{ uri.rootUrl(true) }}{{ uri.route() }}.{{ uri.extension() }}" rel="self" />
     <subtitle>{{ collection.params.description }}</subtitle>
     <updated>{{ collection|first.date|date("Y-m-d\\TH:i:sP") }}</updated>
     <author>
@@ -18,14 +18,14 @@
         <published>{{ item.date|date("Y-m-d\\TH:i:sP") }}</published>
         <link href="{{ item.url(true) }}"/>
         {% for tag in item.taxonomy.tag %}
-        <category term="{{ tag|lower }}" label="{{ tag|capitalize }}" />
+        <category term="{{ tag|lower|e }}" label="{{ tag|capitalize|e }}" />
         {% endfor %}
         <content type="html">
             <![CDATA[
             {% if banner %}
             {{ banner.cropZoom(600,400).html|raw }}
             {% endif %}
-            {{ item.content|truncate_html(collection.params.length)|raw }}
+            {{ item.content|safe_truncate_html(collection.params.length)|raw }}
             ]]>
         </content>
     </entry>

@@ -49,6 +49,17 @@ or
 ```
 http://www.mysite.com/blog.json
 ```
+
+## Autodiscovery
+
+To let feed readers discover the feed automatically, add a link to your HTML `<head>` tag:
+
+```
+<link rel="alternate" type="application/atom+xml" title="My Feed" href="{{ base_url }}.atom" />
+<link rel="alternate" type="application/rss+xml" title="My Feed" href="{{ base_url }}.rss" />
+<link rel="alternate" type="application/json" title="My Feed" href="{{ base_url }}.json" />
+```
+
 ## Creating Feed Buttons in Your Pages
 
 Just having the plugin loaded and activated is enough to get it working, but you can help users find your feeds by creating buttons in the body of your page users can easily discover and click on to access the feeds.
@@ -116,3 +127,16 @@ Manually updating Feed is pretty simple. Here is what you will need to do to get
 
 > Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/plugins`) will remain intact.
 
+## Nginx Note:
+
+If you are having trouble with 404s with Nginx, it might be related to your configuration. You may need to remove the feed extensions from the list of types to cache as static files: `.xml`, `.rss`, and `.atom`. For example:
+
+```nginx
+# Cache static files
+location ~* \.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|css|js|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf|swf)$ {
+  add_header "Access-Control-Allow-Origin" "*";
+  access_log off;
+  log_not_found off;
+  expires max;
+}
+```
