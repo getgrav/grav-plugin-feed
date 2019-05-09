@@ -1,3 +1,9 @@
+# v1.7.1
+## 05/09/2019
+
+1. [](#bugfix)
+    * Fix issue with Feed Options not showing up in Quark (and other themes) [#46](https://github.com/getgrav/grav-plugin-feed/issues/46)
+
 # v1.7.0
 ## 04/15/2019
 
