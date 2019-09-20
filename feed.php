@@ -3,9 +3,9 @@ namespace Grav\Plugin;
 
 use Grav\Common\Data;
 use Grav\Common\Page\Collection;
+use Grav\Common\Page\Interfaces\PageInterface;
 use Grav\Common\Plugin;
 use Grav\Common\Uri;
-use Grav\Common\Page\Page;
 use RocketTheme\Toolbox\Event\Event;
 
 class FeedPlugin extends Plugin
@@ -80,7 +80,7 @@ class FeedPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        /** @var Page $page */
+        /** @var PageInterface $page */
         $page = $this->grav['page'];
         if (isset($page->header()->feed)) {
             $this->feed_config = array_merge($this->feed_config, $page->header()->feed);
