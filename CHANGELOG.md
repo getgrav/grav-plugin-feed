@@ -3,6 +3,7 @@
 
 1. [](#new)
     * Require Grav v1.6
+    * Pass phpstan level 1 tests
 
 # v1.7.1
 ## 05/09/2019
