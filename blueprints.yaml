@@ -43,6 +43,7 @@ form:
     lang:
       type: text
       label: Feed language code
+      help: Ignored when LangSwitcher plugin is enabled
       default: en
       placeholder: en
       validate:
