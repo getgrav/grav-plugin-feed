@@ -5,11 +5,7 @@
         <title>{{ page.title }}</title>
         <link>{{ uri.rootUrl(true) }}{{ uri.route() }}.{{ uri.extension() }}</link>
         <description>{{ collection.params.description }}</description>
-        {% if config.plugins.langswitcher.enabled %}
-        <language>{{ langswitcher.current }}</language>
-        {% else %}
-        <language>{{ collection.params.lang }}</language>
-        {% endif %}
+        <language>{{ grav.language.getLanguage }}</language>
         <atom:link href="{{ uri.url(true) }}.{{  uri.extension }}" rel="self" type="application/rss+xml"/>
         {% for item in collection %}
         {% set banner = item.media.images|first %}

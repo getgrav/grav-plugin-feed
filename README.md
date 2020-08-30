@@ -79,7 +79,6 @@ The first line adds the **Atom** feed by simply adding `.atom` to the base URL o
 enable_json_feed: false
 limit: 10
 description: My Feed Description
-lang: en-us
 length: 500
 ```
 

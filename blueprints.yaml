@@ -40,15 +40,6 @@ form:
       type: textarea
       label: Description
 
-    lang:
-      type: text
-      label: Feed language code
-      help: Ignored when LangSwitcher plugin is enabled
-      default: en
-      placeholder: en
-      validate:
-        pattern: "[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?"
-
     length:
       type: range
       label: Feed Length (0 for full-text feed)
