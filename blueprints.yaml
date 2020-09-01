@@ -36,6 +36,10 @@ form:
         min: 10
         max: 1000
 
+    title:
+      type: text
+      label: Title
+
     description:
       type: textarea
       label: Description
