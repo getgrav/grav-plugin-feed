@@ -2,10 +2,10 @@
 {% set collection = collection|default(page.collection) %}
 {% set lastBuildDate = 0 %}
 {% for page in collection %}
-    {% set lastBuildDate = max(lastBuildDate, page.date) %}
-    {% if collection.params.show_last_modified %}
-        {% set lastBuildDate = max(feed_updated, page.modified) %}
-    {% endif %}
+    {%- set lastBuildDate = max(lastBuildDate, page.date) %}
+    {%- if collection.params.show_last_modified %}
+        {%- set lastBuildDate = max(feed_updated, page.modified) %}
+    {%- endif %}
 {% endfor %}
 <?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
