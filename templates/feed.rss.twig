@@ -12,9 +12,9 @@
     <channel>
         <title>{{ collection.params.title }}</title>
         <link>{{ uri.rootUrl(true) }}{{ uri.route() }}.{{ uri.extension() }}</link>
+        <atom:link href="{{ uri.rootUrl(true)~uri.uri() }}" rel="self" type="application/rss+xml"/>
         <description>{{ collection.params.description }}</description>
         <language>{{ grav.language.getLanguage }}</language>
-        <atom:link href="{{ uri.url(true) }}.{{  uri.extension }}" rel="self" type="application/rss+xml"/>
         <lastBuildDate>{{ lastBuildDate|date('D, d M Y H:i:s O') }}</lastBuildDate>
         {% for item in collection %}
         {% set banner = item.media.images|first %}
