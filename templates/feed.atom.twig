@@ -30,7 +30,7 @@
         <published>{{ item.date|date("Y-m-d\\TH:i:sP") }}</published>
         <link href="{{ item.url(true) }}"/>
         {% for tag in item.taxonomy.tag %}
-        <category term="{{ tag|lower|e }}" label="{{ tag|capitalize|e }}" />
+        <category term="{{ tag|e }}" />
         {% endfor %}
         <content type="html">
             <![CDATA[
