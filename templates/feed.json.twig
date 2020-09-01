@@ -11,7 +11,7 @@
     {%- set post = post|merge({"id": item.url(true) }) %}
     {%- set post = post|merge({"url": item.url(true) }) %}
     {%- set post = post|merge({"author": {"name" : site.author.name}}) %}
-    {%- set post = post|merge({"content_html": item.content }) %}
+    {%- set post = post|merge({"content_html": item.content|safe_truncate_html(collection.params.length) }) %}
 		{%- set post = post|merge({"post_image": banner.url(true) }) %}
     {%- set itemList = itemList|merge([post]) %}
 {% endfor %}
