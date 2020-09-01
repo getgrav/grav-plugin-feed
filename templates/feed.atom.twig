@@ -14,7 +14,7 @@
     <subtitle>{{ collection.params.description }}</subtitle>
     <updated>{{ feed_updated|date("Y-m-d\\TH:i:sP") }}</updated>
     <author>
-        <name>{{ site.author.name|default("Grav User") }}</name>
+        <name>{{ site.author.name }}</name>
     </author>
     <id>{{ page.url(true) }}</id>
     {% for item in collection %}
