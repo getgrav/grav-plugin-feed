@@ -62,3 +62,15 @@ form:
         0: Disabled
       validate:
         type: bool
+
+    show_last_modified:
+      type: toggle
+      label: Show last modified date
+      help: If enabled, file modification date will be used for computing "last updated" times in feeds
+      highlight: 0
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
