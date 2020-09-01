@@ -76,10 +76,11 @@ The first line adds the **Atom** feed by simply adding `.atom` to the base URL o
 # Config Defaults
 
 ```
-enable_json_feed: false
+enabled: true
 limit: 10
-description: My Feed Description
+description: 'My Feed Description'
 length: 500
+enable_json_feed: false
 ```
 
 You can override any of the default values by setting one or more of these in your blog list page where `sub_pages` is defined. For example:
