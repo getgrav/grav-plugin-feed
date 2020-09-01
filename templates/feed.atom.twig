@@ -22,7 +22,11 @@
     <entry>
         <title>{{ item.title|e }}</title>
         <id>{{ item.url(true) }}</id>
+        {% if collection.params.show_last_modified %}
+        <updated>{{ item.modified|date("Y-m-d\\TH:i:sP") }}</updated>
+        {% else %}
         <updated>{{ item.date|date("Y-m-d\\TH:i:sP") }}</updated>
+        {% endif %}
         <published>{{ item.date|date("Y-m-d\\TH:i:sP") }}</published>
         <link href="{{ item.url(true) }}"/>
         {% for tag in item.taxonomy.tag %}
