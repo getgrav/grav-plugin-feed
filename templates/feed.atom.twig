@@ -16,7 +16,7 @@
     <author>
         <name>{{ site.author.name|default("Grav User") }}</name>
     </author>
-    <id>{{ uri.rootUrl(true) }}{{ uri.route() }}</id>
+    <id>{{ page.url(true) }}</id>
     {% for item in collection %}
     {% set banner = item.media.images|first %}
     <entry>
