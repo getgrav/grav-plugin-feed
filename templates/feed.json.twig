@@ -20,7 +20,10 @@
     } %}
     {% set banner = item.media.images|first %}
 
-		{%- set post = post|merge({"post_image": banner.url(true) }) %}
+    {% set image = item.media.images|first %}
+    {% if image %}
+        {%- set post = post|merge({"image": image.url(true)}) %}
+    {% endif %}
     {%- set itemList = itemList|merge([post]) %}
 {% endfor %}
 {% set jsonfeed = jsonfeed|merge({"items": itemList}) %}
