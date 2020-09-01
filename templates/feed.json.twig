@@ -20,11 +20,24 @@
     } %}
     {% set banner = item.media.images|first %}
 
+    {% if item.header.metadata.description %}
+        {%- set post = post|merge({"summary": item.header.metadata.description|e}) %}
+    {% endif %}
+
+    {% if collection.params.show_last_modified %}
+        {%- set post = post|merge({"date_modified": item.modified|date('Y-m-d\\TH:i:sP')}) %}
+    {% endif %}
+
+    {% if item.taxonomy.tag %}
+        {%- set post = post|merge({"tags": item.taxonomy.tag}) %}
+    {% endif %}
+
     {% set image = item.media.images|first %}
     {% if image %}
         {%- set post = post|merge({"image": image.url(true)}) %}
     {% endif %}
     {%- set itemList = itemList|merge([post]) %}
 {% endfor %}
+
 {% set jsonfeed = jsonfeed|merge({"items": itemList}) %}
 {{- jsonfeed|json_encode }}
