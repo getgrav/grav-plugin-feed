@@ -36,17 +36,13 @@ form:
         min: 10
         max: 1000
 
+    title:
+      type: text
+      label: Title
+
     description:
       type: textarea
       label: Description
-
-    lang:
-      type: text
-      label: Feed language code
-      default: en
-      placeholder: en
-      validate:
-        pattern: "[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?"
 
     length:
       type: range
@@ -59,6 +55,18 @@ form:
     enable_json_feed:
       type: toggle
       label: JSON feed support
+      highlight: 0
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
+    show_last_modified:
+      type: toggle
+      label: Show last modified date
+      help: If enabled, file modification date will be used for computing "last updated" times in feeds
       highlight: 0
       default: 0
       options:
