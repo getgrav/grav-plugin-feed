@@ -8,6 +8,8 @@ This plugin supports __Atom 1.0__, __RSS__ and __JSON__ feed types. Enabling is 
 
 | NOTE: JSON feeds must be enabled manually in the plugin configuration as the `.json` extension is commonly used and this can conflict with other plugins.
 
+If you do enable the JSON feed, you will want to edit `feed.json.twig`. Replace the placeholder data on lines 2 and 3 (`feed_url` and `author:url`) with your own data. You may also want to change the formatting of the date on lines 8 and 9.
+
 # Installation
 
 Installing the Feed plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file. 
