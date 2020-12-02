@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitd512066232734940b99b34ad4f8603bc
 {
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Grav\\Plugin\\FeedPlugin' => __DIR__ . '/../..' . '/feed.php',
     );
 
