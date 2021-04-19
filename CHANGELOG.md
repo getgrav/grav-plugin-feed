@@ -1,3 +1,9 @@
+# v1.8.1
+## mm/dd/2021
+
+1. [](#bugfix)
+    * Provide a default language if multi-language not enabled
+
 # v1.8.0
 ## 12/02/2020
 
