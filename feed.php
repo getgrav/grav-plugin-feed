@@ -114,7 +114,7 @@ class FeedPlugin extends Plugin
     public function onCollectionProcessed(Event $event)
     {
         /** @var Collection $collection */
-        $collection = $event['collection'];
+        $collection = $event['collection']->nonModular();
 
         foreach ($collection as $slug => $page) {
             $header = $page->header();

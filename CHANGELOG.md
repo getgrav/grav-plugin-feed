@@ -1,3 +1,9 @@
+# v1.8.2
+## mm/dd/2021
+
+1. [](#bugfix)
+    * Fixed issue with modular pages showing up in feed
+
 # v1.8.1
 ## 05/21/2021
 
