@@ -1,3 +1,11 @@
+# v1.8.2
+## 05/21/2021
+
+1. [](#bugfix)
+    * Fixed issue with json feed type corrupting other json requests [getgrav/grav-premium-issues#102](https://github.com/getgrav/grav-premium-issues/issues/102)
+    * Fixed issue with modular pages showing up in feed
+      
+
 # v1.8.1
 ## 05/21/2021
 
