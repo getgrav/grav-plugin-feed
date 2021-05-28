@@ -1,3 +1,9 @@
+# v1.8.3
+## 05/28/2021
+
+1. [](#bugfix)
+    * Fixed issue with feeds at the root of a site [#61](https://github.com/getgrav/grav-plugin-feed/issues/61)
+
 # v1.8.2
 ## 05/21/2021
 
