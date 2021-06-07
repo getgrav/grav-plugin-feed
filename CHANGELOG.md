@@ -1,5 +1,5 @@
 # v1.8.4
-## mm/dd/2021
+## 06/07/2021
 
 1. [](#improved)
     * Added a configurable `enable_url_check` (default `true`) to disable the URL checking if you run into an issue.
