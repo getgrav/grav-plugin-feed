@@ -65,17 +65,6 @@ form:
       validate:
         type: bool
 
-    enable_url_check:
-      type: toggle
-      label: Enable URL Check
-      highlight: 1
-      default: 1
-      options:
-        1: Enabled
-        0: Disabled
-      validate:
-        type: bool
-
     show_last_modified:
       type: toggle
       label: Show last modified date
