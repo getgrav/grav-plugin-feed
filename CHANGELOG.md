@@ -1,5 +1,5 @@
 # v1.8.5
-## mm/dd/2021
+## 06/09/2021
 
 1. [](#improved)
    * Rolled back the URL check functionality as it caused more issues than it solved.
