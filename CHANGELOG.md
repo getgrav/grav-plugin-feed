@@ -1,6 +1,8 @@
-# v1.9.1
+# v1.10.0
 ## 09/26/2022
 
+1. [](#new)
+   * Allow template overrides based on header feed config [#67](https://github.com/getgrav/grav-plugin-feed/pull/67)
 1. [](#bugfix)
    * Fixed the `<lastBuildDate..>` that was broken
 
