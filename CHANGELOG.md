@@ -1,3 +1,9 @@
+# v1.9.1
+## 09/26/2022
+
+1. [](#bugfix)
+   * Fixed the `<lastBuildDate..>` that was broken
+
 # v1.9.0
 ## 10/05/2022
 
