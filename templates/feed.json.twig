@@ -36,6 +36,10 @@
     {% if image %}
         {%- set post = post|merge({"image": image.url(true)}) %}
     {% endif %}
+
+    {% if item.header.link %}
+        {%- set post = post|merge({"external_url": item.header.link}) %}
+    {% endif %}
     {%- set itemList = itemList|merge([post]) %}
 {% endfor %}
 

@@ -29,6 +29,9 @@
         {% endif %}
         <published>{{ item.date|date("Y-m-d\\TH:i:sP") }}</published>
         <link href="{{ item.url(true) }}"/>
+        {% if (item.header.link) %}
+        <link href="{{ item.header.link }}" rel="alternate"/>
+        {% endif %}
         {% for tag in item.taxonomy.tag %}
         <category term="{{ tag|e }}" />
         {% endfor %}

@@ -21,6 +21,9 @@
         <item>
             <title>{{ item.title|e }}</title>
             <link>{{ item.url(true) }}</link>
+            {% if (item.header.link) %}
+            <link>{{ item.header.link }}</link>
+            {% endif %}
             <guid>{{ item.url(true) }}</guid>
             <pubDate>{{ item.date|date('D, d M Y H:i:s O') }}</pubDate>
             <description>
