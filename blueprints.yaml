@@ -76,3 +76,15 @@ form:
         0: Disabled
       validate:
         type: bool
+
+    skip_behavior:
+      type: toggle
+      label: Skip behavior
+      help: "Explicit: all articles are included, use `skip: true` to exclude. Implicit: all articles are skipped, use `skip: false` to include."
+      highlight: 0
+      default: 0
+      options:
+        1: Implicit
+        0: Explicit
+      validate:
+        type: bool
