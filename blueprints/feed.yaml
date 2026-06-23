@@ -8,15 +8,15 @@ form:
           fields:
             header.feed.limit:
               type: text
-              label: Feed count
+              label: PLUGIN_FEED.LIMIT
               default: 10
               validate:
                 type: int
 
             header.feed.title:
               type: text
-              label: Feed title
+              label: PLUGIN_FEED.TITLE
 
             header.feed.description:
               type: text
-              label: Feed description
+              label: PLUGIN_FEED.DESCRIPTION

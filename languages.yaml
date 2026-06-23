@@ -1,0 +1,23 @@
+en:
+  PLUGIN_FEED:
+    ENABLED: Plugin status
+    LIMIT: Feed count
+    TITLE: Feed title
+    DESCRIPTION: Feed description
+    LENGTH: Feed length (0 for full-text feed)
+    ENABLE_JSON_FEED: JSON feed support
+    SHOW_LAST_MODIFIED:
+      LABEL: Show last modified date
+      HELP: If enabled, file modification date will be used for computing "last updated" times in feeds
+
+de:
+  PLUGIN_FEED:
+    ENABLED: Plugin Status
+    LIMIT: Feed Anzahl
+    TITLE: Feed Titel
+    DESCRIPTION: Feed Beschreibung
+    LENGTH: Feed Länge (0 für vollständigen Feed)
+    ENABLE_JSON_FEED: JSON Feed Unterstützung
+    SHOW_LAST_MODIFIED:
+      LABEL: Letzte Änderung anzeigen
+      HELP: Wenn aktiviert, wird das Dateiänderungsdatum für die Berechnung von "zuletzt aktualisiert" in Feeds verwendet
