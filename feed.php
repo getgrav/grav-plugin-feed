@@ -130,8 +130,17 @@ class FeedPlugin extends Plugin
 
         foreach ($collection as $page) {
             $header = $page->header();
-            if (isset($header->feed) && !empty($header->feed['skip'])) {
-                $collection->remove($page);
+            if ($this->feed_config['skip_behavior']) {
+                // Implicit skip: exclude all, include if skip is set to false
+                if (!isset($header->feed['skip']) || !empty($header->feed['skip'])) {
+                    $collection->remove($page);
+                }
+            }
+            else {
+                // Explicit skip (default): include all, exclude if skip is set to true
+                if (isset($header->feed) && !empty($header->feed['skip'])) {
+                    $collection->remove($page);
+                }
             }
         }
 
