@@ -181,7 +181,9 @@ class FeedPlugin extends Plugin
     {
         $headers = $e['headers'];
         $content_type = $headers->{'Content-Type'} ?? null;
-        if ($content_type) {
+        // Grav 2.1 already sends a charset on its Markdown output, and a site can
+        // set one in media.yaml, so only add it when the header has none.
+        if ($content_type && stripos((string)$content_type, 'charset=') === false) {
             $headers->{'Content-Type'} = "$content_type; charset=utf-8";
         }
     }
