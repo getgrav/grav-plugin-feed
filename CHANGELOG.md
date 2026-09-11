@@ -1,3 +1,9 @@
+# v1.10.2
+## 09/10/2026
+
+1. [](#bugfix)
+    * The `Content-Type` charset is no longer added twice on Grav 2.1's Markdown output, which already carries one
+
 # v1.10.1
 ## 05/01/2026
 
