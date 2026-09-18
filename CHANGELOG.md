@@ -1,3 +1,9 @@
+# v1.10.3
+## 09/17/2026
+
+1. [](#bugfix)
+    * RSS and Atom feeds now keep page content inside its own feed entry when it contains a CDATA terminator. Thanks @AlpetGexha
+
 # v1.10.2
 ## 09/10/2026
 
