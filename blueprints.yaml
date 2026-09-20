@@ -24,18 +24,18 @@ form:
   fields:
     enabled:
       type: toggle
-      label: Plugin status
+      label: PLUGIN_FEED.ENABLED
       highlight: 1
       default: 0
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
 
     limit:
       type: range
-      label: Feed count
+      label: PLUGIN_FEED.LIMIT
       validate:
         type: number
         min: 10
@@ -43,15 +43,15 @@ form:
 
     title:
       type: text
-      label: Title
+      label: PLUGIN_FEED.TITLE
 
     description:
       type: textarea
-      label: Description
+      label: PLUGIN_FEED.DESCRIPTION
 
     length:
       type: range
-      label: Feed Length (0 for full-text feed)
+      label: PLUGIN_FEED.LENGTH
       validate:
         type: number
         min: 0
@@ -59,23 +59,23 @@ form:
 
     enable_json_feed:
       type: toggle
-      label: JSON feed support
+      label: PLUGIN_FEED.ENABLE_JSON_FEED
       highlight: 0
       default: 0
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
 
     show_last_modified:
       type: toggle
-      label: Show last modified date
-      help: If enabled, file modification date will be used for computing "last updated" times in feeds
+      label: PLUGIN_FEED.SHOW_LAST_MODIFIED.LABEL
+      help: PLUGIN_FEED.SHOW_LAST_MODIFIED.HELP
       highlight: 0
       default: 0
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
