@@ -7,7 +7,9 @@ use Grav\Common\Page\Collection;
 use Grav\Common\Page\Interfaces\PageInterface;
 use Grav\Common\Plugin;
 use Grav\Common\Uri;
+use Grav\Common\Utils;
 use RocketTheme\Toolbox\Event\Event;
+use Twig\TwigFunction;
 
 class FeedPlugin extends Plugin
 {
@@ -81,6 +83,7 @@ class FeedPlugin extends Plugin
             $this->enable([
                 'onPageInitialized' => ['onPageInitialized', 0],
                 'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+                'onTwigExtensions' => ['onTwigExtensions', 0],
             ]);
         }
     }
@@ -136,6 +139,40 @@ class FeedPlugin extends Plugin
         }
 
         $this->grav->fireEvent('onFeedCollectionProcessed', $event);
+    }
+
+    /**
+     * Give the feed templates the `feed_item_content()` function.
+     */
+    public function onTwigExtensions()
+    {
+        $this->grav['twig']->twig()->addFunction(new TwigFunction('feed_item_content', [$this, 'feedItemContent']));
+    }
+
+    /**
+     * Fire `onFeedItemContent` for one feed item and return the HTML to print.
+     *
+     * Listeners get the item's full content and may replace it. The content is cut to the
+     * feed's length afterwards, unless a listener set `truncate` to false.
+     *
+     * @param PageInterface $page
+     * @param string $format 'rss', 'atom' or 'json'
+     * @param int|null $length
+     * @return string
+     */
+    public function feedItemContent(PageInterface $page, string $format, $length = null)
+    {
+        $event = new Event([
+            'page' => $page,
+            'content' => (string) $page->content(),
+            'format' => $format,
+            'truncate' => true,
+        ]);
+        $this->grav->fireEvent('onFeedItemContent', $event);
+
+        $content = (string) $event['content'];
+
+        return $event['truncate'] ? Utils::safeTruncateHtml($content, $length) : $content;
     }
 
     /**
