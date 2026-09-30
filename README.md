@@ -142,6 +142,41 @@ feed:
 
 Create the `my-override.rss.twig` in your theme/ plugin's `templates` folder and add it to your [twig template paths](https://learn.getgrav.org/17/cookbook/plugin-recipes#custom-twig-templates-plu).  Change `*.rss.*` to `*.atom.*` or `*.json.*` to override those page types.
 
+## Changing an item's content from a plugin
+
+For every item, the plugin fires the `onFeedItemContent` event before it prints the content. A plugin can listen for it to replace what a feed shows for a page, for example to print an excerpt instead of the full text of a members-only article. The event carries:
+
+* `page`: the item's page object
+* `content`: the item's full HTML, not yet cut to the feed's `length`
+* `format`: `rss`, `atom` or `json`
+* `truncate`: `true` to start with. After the event the plugin cuts `content` to the feed's `length` (in words) and prints it. Set `truncate` to `false` when your content has to be printed as it is, for instance when it ends with a link that must not be cut off.
+
+Only the `content` and `truncate` values are read back. A listener that changes nothing leaves the feed exactly as it was, and a site with no listeners gets the same output as before.
+
+```php
+public static function getSubscribedEvents()
+{
+    return ['onFeedItemContent' => ['onFeedItemContent', 0]];
+}
+
+public function onFeedItemContent(Event $event)
+{
+    $page = $event['page'];
+
+    if (!empty($page->header()->members_only)) {
+        $event['content'] = '<p>' . $page->summary() . '</p>'
+            . '<p><a href="' . $page->url(true) . '">Read the full article</a></p>';
+        $event['truncate'] = false;
+    }
+}
+```
+
+The event is fired by the plugin's own `feed.rss.twig`, `feed.atom.twig` and `feed.json.twig`. A theme or plugin that overrides one of those templates keeps working exactly as it did, it just doesn't fire the event for that format. To support it in your own template, print the item with the `feed_item_content` Twig function in place of `item.content|safe_truncate_html(...)`:
+
+```twig
+{{ feed_item_content(item, 'rss', collection.params.length) }}
+```
+
 ## Nginx Note:
 
 If you are having trouble with 404s with Nginx, it might be related to your configuration. You may need to remove the feed extensions from the list of types to cache as static files: `.xml`, `.rss`, and `.atom`. For example:

@@ -16,7 +16,7 @@
         "date_published": item.date|date('Y-m-d\\TH:i:sP'),
         "id": item.url(true),
         "url": item.url(true),
-        "content_html": item.content|safe_truncate_html(collection.params.length)
+        "content_html": feed_item_content(item, 'json', collection.params.length)
     } %}
     {% set banner = item.media.images|first %}
 

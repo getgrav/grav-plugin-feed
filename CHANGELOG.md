@@ -1,3 +1,9 @@
+# v1.10.4
+## 09/29/2026
+
+1. [](#new)
+    * Added the `onFeedItemContent` event, fired for every item in the RSS, Atom and JSON feeds, so a plugin can change what a feed prints for a page (for example an excerpt instead of a members-only article)
+
 # v1.10.3
 ## 09/17/2026
 
